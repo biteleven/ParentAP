@@ -2,6 +2,7 @@
 
 body, input, select, textarea, button, .ui-btn{
     font-family: 'Roboto', sans-serif;
+    font-size:2.5vw;
 }
 .clear {
     clear:both;
@@ -14,7 +15,7 @@ body{
     background:white;
 }
 .ui-content {
-    padding:1em;
+    padding:1vw;
 }
 .ui-header.ui-bar-a {
 	background: #1f396a;
@@ -188,13 +189,13 @@ body{
     float:left;
     width: 40%;
     background-color: white;
-    height:230px;
-    min-width:200px;
+
+
 }
 #ap-column-left p{
     text-align: center;
     margin: 10px 5% 0;
-    font-size: 10em;
+    font-size: 20vw;
     color:tomato;
     font-weight: 100;
 }
@@ -202,7 +203,7 @@ body{
     float: left;
     width: 60%;
     background-color: white;
-    height: 230px;
+
 
 }
 #ap-area {
@@ -211,19 +212,19 @@ body{
  }
 #ap-area p{
     display: block;
-    font-size: 2em;
-    margin: 60px auto 30px;
+    font-size: 5vw;
+    margin: 13% auto 0;
     color: darkslategrey;
 }
 
 #ap-area2{
     display: block;
-    margin-top: 30px;
+    margin-top: 25px;
     color: #ccc;
 }
 #ap-area2 p{
 
-    font-size: 1.3em;
+    font-size: 3vw;
 
 }
 
@@ -240,15 +241,15 @@ body{
 }
 #ap-families{
     clear:both;
-    margin-left:5%;
+    margin-left:13%;
 }
 #ap-families p{
-    font-size: 1.5em;
+    font-size: 3vw;
     margin:0;
 }
 #ap-families span{
     margin-left:20px;
-    font-size:0.8em;
+    font-size:2.6vw;
     color: #ccc;
 }
 
@@ -272,14 +273,16 @@ margin:50px 20px 0 20px;
 text-align: center;
 }
 .ui-field-contain label{
+    margin:0;
+    font-size: 4vw;
     padding-top:5px;
     text-align: left;
-    width: 40%;
+    width: 70%;
 }
 
 .ui-field-contain{
     text-align: center;
-    margin: 1.5em 0;
+    margin: 4vw 0;
 }
 #ap-info ul li span{
     margin-left:10px;
