@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900,100&subset=latin,greek);
 
-body, input, select, textarea, button, .ui-btn{
+html,body, input, select, textarea, button, .ui-btn{
     font-family: 'Roboto', sans-serif;
-    font-size:2.5vw;
+    font-size:16px;
 }
 .clear {
     clear:both;
@@ -195,7 +195,7 @@ body{
 #ap-column-left p{
     text-align: center;
     margin: 10px 5% 0;
-    font-size: 20vw;
+    font-size: 6rem;
     color:tomato;
     font-weight: 100;
 }
@@ -212,7 +212,7 @@ body{
  }
 #ap-area p{
     display: block;
-    font-size: 5vw;
+    font-size: 1.9rem;
     margin: 13% auto 0;
     color: darkslategrey;
 }
@@ -224,7 +224,7 @@ body{
 }
 #ap-area2 p{
 
-    font-size: 3vw;
+    font-size: 1rem;
 
 }
 
@@ -244,12 +244,12 @@ body{
     margin-left:13%;
 }
 #ap-families p{
-    font-size: 3vw;
+    font-size: 1rem;
     margin:0;
 }
 #ap-families span{
     margin-left:20px;
-    font-size:2.6vw;
+    font-size:0.8rem;
     color: #ccc;
 }
 
@@ -274,7 +274,7 @@ text-align: center;
 }
 .ui-field-contain label{
     margin:0;
-    font-size: 4vw;
+    font-size: 1.5rem;
     padding-top:5px;
     text-align: left;
     width: 70%;
@@ -282,7 +282,7 @@ text-align: center;
 
 .ui-field-contain{
     text-align: center;
-    margin: 4vw 0;
+    margin: 2rem 0;
 }
 #ap-info ul li span{
     margin-left:10px;
