@@ -1,0 +1,286 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900,100&subset=latin,greek);
+
+body, input, select, textarea, button, .ui-btn{
+    font-family: 'Roboto', sans-serif;
+}
+.clear {
+    clear:both;
+}
+
+body{
+    background-color: black !important;
+}
+.ui-page {
+    background:white;
+}
+.ui-content {
+    padding:1em;
+}
+.ui-header.ui-bar-a {
+	background: #1f396a;
+    border:none;
+    color: white;
+}
+.ui-header.ui-bar-a > .ui-title {
+    text-shadow:none;
+    margin: .6em 20% .8em;
+}
+.ui-footer {
+    text-align: center;    
+}
+
+.ui-body-c, .ui-overlay-c {
+    color:black;
+}
+
+.err {
+    color: red;
+}
+
+.info-wrapper {
+    border: none;
+	background: #3496da;
+    padding:0.5em;
+}
+.info-wrapper-left {
+    float:left;
+    width:25%;
+}
+.info-wrapper-right {
+    float:right;
+    width:75%;
+}
+
+.info {
+    margin:0.6em 0em;
+    position:relative;
+    right:0;
+}
+.info > .info-label {
+    color:#054251;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    float:right;
+    margin-right:10px;
+    font-size:0.8em;
+    vertical-align:middle;
+    padding:0.4em 0em;
+}
+.info > .info-data {
+    color:#fff;
+    text-shadow:none;
+    padding:0.4em 1em;
+    background:rgba(0,0,0,0.15);
+    border-radius:1em;
+    width:45%;
+    display:inline;
+    float:right;
+    font-size:0.8em;
+}
+
+.ice-logo {
+	background:url("../images/ice_air_logo.png") no-repeat 0 0;
+    margin-top: 7px;
+    width:100px;
+    height:100px;
+}
+
+#login > .ui-btn {
+    margin-top: 20px;
+}
+#numberOfFlights {
+	background:#BED929;
+	border: 1px solid #9ab021;
+	font-family: arial;
+	color: white;
+	font-size: 0.9em;
+	padding: 0em 0.3em;
+	border-radius: 0.4em;
+    margin-left:5px;
+}
+#map_canvas {
+    text-align:center;
+}
+
+/* BUTTON STYLES*/
+.ui-bar-a > .ui-btn-up-a {
+    border: 1px solid #2373A5;
+    margin-top: 1px;
+    background:#3496da;
+}
+.ui-bar-a > .ui-btn-hover-a {
+    border: 1px solid #2373A5;
+    margin-top: 1px;
+    background:#3496da;
+}
+.ui-bar-b {
+	border: none;
+	color: white;
+	font-weight: bold;
+	background: #3496da;
+}
+.ui-content .ui-listview-inset {
+    margin: 1em 5px;
+}
+.ui-btn-active {
+	border: 1px solid #2373A5;
+	background: #3496da;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
+	font-family: Helvetica, Arial, sans-serif;
+}
+.ui-icon.ui-icon-arrow-r {
+    background-color:#3496da;
+    border:none;
+}
+.ui-btn-active .ui-icon.ui-icon-arrow-r {
+	background-color: #666;
+    background-color: rgba(0, 0, 0, .4);
+	border: none;
+}
+
+.ui-loader-verbose {
+    background: #3496da;
+}
+
+#mainmenu {
+    width:100%;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+.box {
+
+    display:inline-block;
+    width:49%;
+    background: #2c539e;
+
+}
+
+.menu-item {
+    color: white !important;
+    text-shadow:none !important;
+    background: #2c539e;
+    background-position:center;
+    min-height:150px;
+    min-width:150px;
+    margin:0;
+    margin-top:3px;
+
+}
+
+#bt_sos {
+    background:url(../images/ic_action_call.png) no-repeat center center;
+}
+
+#bt_help {
+    background:url(../images/ic_action_warning.png) no-repeat center center;
+}
+
+#bt_location {
+    background:url(../images/ic_action_warning.png) no-repeat center center;
+}
+
+#ap-column-left{
+    float:left;
+    width: 40%;
+    background-color: white;
+    height:230px;
+    min-width:200px;
+}
+#ap-column-left p{
+    text-align: center;
+    margin: 10px 5% 0;
+    font-size: 10em;
+    color:tomato;
+    font-weight: 100;
+}
+#ap-column-right {
+    float: left;
+    width: 60%;
+    background-color: white;
+    height: 230px;
+
+}
+#ap-area {
+    display: block;
+
+ }
+#ap-area p{
+    display: block;
+    font-size: 2em;
+    margin: 60px auto 30px;
+    color: darkslategrey;
+}
+
+#ap-area2{
+    display: block;
+    margin-top: 30px;
+    color: #ccc;
+}
+#ap-area2 p{
+
+    font-size: 1.3em;
+
+}
+
+#ap-info{
+    margin-left:5%;
+
+
+}
+
+#ap-info ul li{
+
+    margin: 20px 0;
+
+}
+#ap-families{
+    clear:both;
+    margin-left:5%;
+}
+#ap-families p{
+    font-size: 1.5em;
+    margin:0;
+}
+#ap-families span{
+    margin-left:20px;
+    font-size:0.8em;
+    color: #ccc;
+}
+
+ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+.hline{
+    margin:10px 0;
+    padding:0;
+    display: block;
+    width: 100%;
+    height:3px;
+    background-color: darkslategrey;;
+}
+
+#available-form {
+margin:50px 20px 0 20px;
+text-align: center;
+}
+.ui-field-contain label{
+    padding-top:5px;
+    text-align: left;
+    width: 40%;
+}
+
+.ui-field-contain{
+    text-align: center;
+    margin: 1.5em 0;
+}
+#ap-info ul li span{
+    margin-left:10px;
+}

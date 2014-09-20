@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Airline Sample</title>
+        <meta charset="UTF-8" />
+		<link href="jquery-mobile/jquery.mobile-1.4.4.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- uncoment viewport meta tag, if targeting Android 4.x.x devices -->
+        <!--<meta name="viewport" content="width=device-width, user-scalable=no">-->
+		<script src="cordova.js" type="text/javascript"></script>
+		<script src="jquery-mobile/jquery.min.js" type="text/javascript"></script>
+		<script src="jquery-mobile/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDD353fOPh-KBUQ-2ekPCg75uxXRn0D9Tk&sensor=false"></script>
+
+        <script>
+          $(function() { 
+            $.mobile.defaultHomeScroll = 0;
+          });
+        </script>
+		<script src="scripts/airlinedata.js" type="text/javascript"></script>
+		<script src="scripts/seatmapdrawing.js" type="text/javascript"></script>
+		<script src="scripts/main.js" type="text/javascript"></script>
+        
+        <!-- Default Stylesheet -->
+        <link rel="stylesheet" href="styles/main.css" />
+        <!-- Phone 320x480 High DPI (aka Retina) -->
+		<link rel="stylesheet" media="only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio:2)" href="styles/phone-480.css" type="text/css" />
+        <!-- Phone 480x800 Medium DPI (aka Samsung Galaxy S II Skyrocket) -->
+        <link rel="stylesheet" media="only screen and (min-device-width: 320px) and (max-device-width: 508px) and (-webkit-device-pixel-ratio:1.5)" href="styles/phone-800.css" type="text/css" />
+        <!-- Tablet 768x1024 Low DPI (aka iPad 1 & 2") -->
+        <link rel="stylesheet" media="only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio:1)" href="styles/tablet-1024-ldpi.css" type="text/css" />
+        <!-- Phone 720x1280 High DPI (aka Google Nexus) -->
+        <link rel="stylesheet" media="only screen and (min-device-width: 720px) and (max-device-width: 1280px) and (-webkit-device-pixel-ratio:2)" href="styles/phone-1280.css" type="text/css" />
+        <!-- Font Awesome -->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+	<body>
+
+    <!-- home page -->
+    <div id="activity" data-role="page">
+    <div id="ap-column-left">
+        <p>19</p>
+    </div>
+    <div id="ap-column-right">
+        <div id="ap-area"><p>APs near you</p></div>
+        <div id="ap-area2"><p>/ 35<span> available in your area</span></p></div>
+    </div>
+
+        <div id="ap-families"><p>1027<span>AP Families are online</span></p></div>
+        <div class="hline"></div>
+        <div id="ap-info">
+            <ul>
+                <li><i class="fa fa-users fa-lg"></i><span>3 families will attend</span></li>
+                <li><i class="fa fa-crosshairs fa-lg"></i><span>You are attending: Mesologgioy 17 13674 Acharnes Greece</span></span></li>
+            </ul>
+
+        <form id="available-form">
+            <div class="ui-field-contain">
+                <label for="opt_available">Available</label>
+                <select id="opt_available" name="opt_available" data-role="slider">
+                    <option value="off">Off</option>
+                    <option value="on">On</option>
+                </select>
+            </div>
+            <div class="ui-field-contain">
+            <label for="opt_available_game">Available for game</label>
+            <select id="opt_available_game" name="opt_available_game" data-role="slider">
+                <option value="off">Off</option>
+                <option value="on">On</option>
+            </select>
+            </div>
+            <div class="ui-field-contain">
+            <label for="opt_available_meet">Available for meet</label>
+            <select id="opt_available_meet" name="opt_available_meet" data-role="slider">
+                <option value="off">Off</option>
+                <option value="on">On</option>
+            </select>
+            </div>
+        </form>
+
+        </div>
+        <div data-role="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="grid" data-theme="b">One</a></li>
+                    <li><a href="#" data-icon="star" data-theme="a">Two</a></li>
+                    <li><a href="#" data-icon="gear" data-theme="a">Three</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /footer -->
+    </div>
+    <!-- home page -->
+    <div id="home" data-role="page">
+        <div data-role="header"  data-position="fixed"  data-tap-toggle="false">
+            <h1>Hi <span id="ffname"></span>!</h1>
+        </div>
+
+        <div >
+            <ul id="mainmenu">
+                <li class="box"><a href="#" data-role="button" id="bt_sos"  onclick="showEmergencyConfirm(); return false;" data-transition="" class="menu-item">Κλήση Ανάγκης</a></li>
+                <li class="box"><a href="#service" data-role="button" id="bt_help" data-transition="" class="menu-item" >Οδική Βοήθεια</a></li>
+                <li class="box"><a href="#location" data-role="button" id="bt_location" data-transition="" class="menu-item" >Τοποθεσία</a></li>
+                <li class="box"><a href="#underdev" data-role="button" id="bt_help" data-transition="" class="menu-item" >Vehicles</a></li>
+                <li class="box"><a href="#underdev" data-role="button" id="bt_help" data-transition="" class="menu-item" >My Location</a></li>
+                <li class="box"><a href="#underdev" data-role="button" id="bt_help" data-transition="" class="menu-item" >Settings</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Request Service page -->
+    <div id="service" data-role="page" data-add-back-btn="true">
+        <div data-role="header" data-position="fixed"  data-tap-toggle="false">
+            <h1>Οδική Βοήθεια</h1>
+         </div>
+        <div data-role="content">
+            <h3>Βρίσκεστε σε ασφαλές σημείο;</h3>
+            <input type="submit" value="Ναι, είμαι ασφαλής" />
+            <h3>Αν δεν νιώθετε ασφαλείς ή είστε σε κίνδυνο καλέστε πρώτα την άμεση βοήθεια:</h3>
+            <input type="submit" value="Κλήση άμεσης βοήθειας" />
+        </div>
+    </div>
+
+    <!-- Emergency Service page -->
+    <div id="emergency" data-role="page" data-add-back-btn="true">
+        <div data-role="header" data-position="fixed"  data-tap-toggle="false">
+            <h1>Κλήση ανάγκης</h1>
+        </div>
+        <div data-role="content">
+            <p><a href="#" onclick="showEmergencyConfirm(); return false;">Κλήση ανάγκης</a></p>
+        </div>
+    </div>
+
+    <!-- Current Location page -->
+    <div id="location" data-role="page" data-add-back-btn="true">
+        <div data-role="header" data-position="fixed"  data-tap-toggle="false">
+            <h1>Που βρίσκομαι;</h1>
+        </div>
+        <div data-role="content">
+
+            <p id="startTracking_status">First run</p>
+            <button data-role="button" onclick="startGeolocation();" id="startTracking_start">Start Tracking</button>
+            <button data-role="button" onclick="stopGeolocation();" id="startTracking_stop">Stop Tracking</button>
+
+            <p id="currentLocation">No location</p>
+
+            <div id="map_canvas" style="position:relative;bottom:0;left:0;width:100%;height:500px;"></div>
+
+        </div>
+    </div>
+
+    <!-- seatPicker page -->
+		<div id="seatPicker" data-role="page">
+			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
+				<h1>Pick a seat</h1>
+				<a href="#checkIn" data-role="button" id="backButton" data-transition="" class="ui-btn-right" data-rel="back">Done</a>
+			</div>
+			<div data-role="content">
+				<div id="seatMapPickerContainer"></div>
+			</div>
+		</div>
+
+		<!-- logon page -->
+		<div id="logon" data-role="page">
+			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
+				<h1>BlueMonkey Preview</h1>
+			</div>
+			<div data-role="content">
+				<form id="login">
+					Username:
+					<input type="text" id="userName" value="" placeholder="Username" />
+					Password:
+					<input type="password" id="pwd" value="" placeholder="Password" />
+					<input type="submit" value="Login" />
+				</form>
+			</div>
+		</div>
+
+		<!-- tripDetail page -->
+		<div id="tripDetail" data-role="page" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
+				<h1>Trip Details</h1>
+                <a data-role="button" href="#home" class="ui-btn-right">Home</a>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" id="tripDetailList" data-inset="true" data-theme="d">
+					<li class="center-wrapper" data-role="list-divider">
+						<span id="tripDetail-title"></span>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Flight Number</div>
+							<div class="ui-block-b">
+								<span id="tripDetail-flightNum"></span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Departure Time</div>
+							<div class="ui-block-b">
+								<span id="tripDetail-depart"></span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Seat</div>
+							<div class="ui-block-b">
+								<span id="tripDetail-seat"></span>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul data-role="listview" id="tripDetailList-return" data-inset="true" data-theme="d">
+					<li class="center-wrapper" data-role="list-divider">
+						<span id="tripDetail-return-title"></span>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Flight Number</div>
+							<div class="ui-block-b">
+								<span id="tripDetail-return-flightNum"></span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Departure Time</div>
+							<div class="ui-block-b">
+								<span id="tripDetail-return-depart"></span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Seat</div>
+							<div class="ui-block-b">
+								<span id="tripDetail-return-seat"></span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--boardingPass page-->
+		<div id="boardingPass" data-role="page" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
+				<h1>Boarding Pass</h1>
+				<a data-role="button" href="#home" class="ui-btn-right">Home</a>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" id="boardingPassData" data-inset="true" data-theme="d">
+					<li class="center-wrapper" data-role="list-divider">
+						<span id="boardingpass-cnum"></span>
+					</li>
+					<li class="center-wrapper">
+						<div class="boardingPassCode"></div>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Passenger</div>
+							<div class="ui-block-b">
+								<span id="boardingpass-passenger"></span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Flight</div>
+							<div class="ui-block-b">
+								<span id="boardingpass-flight"></span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Departure Time</div>
+							<div class="ui-block-b">
+								<span id="boardingpass-depart"></span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Gate</div>
+							<div class="ui-block-b">
+								<span id="boardingpass-gate"></span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">Seat</div>
+							<div class="ui-block-b">
+								<span id="boardingpass-seat"></span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--checkIn page-->
+		<div id="checkIn" data-role="page" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
+				<h1>Check In</h1>
+                <a data-role="button" href="#home" class="ui-btn-right">Home</a>
+			</div>
+			<div data-role="content">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="true" data-theme="d">
+							<li data-role="list-divider">Flight</li>
+							<li>
+								<span id="checkIn-flight-number"></span>
+							</li>
+                            <li>
+								<span id="checkIn-flight-destination"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="ui-block-b">
+						<ul data-role="listview" data-inset="true" data-theme="d">
+							<li data-role="list-divider">Seat</li>
+							<li>
+								<span id="checkIn-seat"></span>
+							</li>
+							<li>
+								<a href="#seatPicker" data-transition="slide">Change Seat</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<a href="#boardingPass" data-role="button">Check In</a>
+			</div>
+		</div>
+
+		<!--myTrips page-->
+		<div id="myTrips" data-role="page" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
+				<h1>My Trips</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" id="myTripsListView" data-inset="true" data-theme="d">
+				</ul>
+			</div>
+		</div>
+
+		<!--flightStatus page-->
+		<div id="flightStatus" data-role="page" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
+				<h1>Flight Status</h1>
+
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" id="Ul1" data-inset="true" data-theme="d">
+					<li>Coming Soon!</li>
+				</ul>
+			</div>
+		</div>
+        
+		<!--bagTrack page-->
+		<div id="bagTrack" data-role="page" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
+				<h1>Bag Track</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" id="Ul2" data-inset="true" data-theme="d">
+					<li>Coming Soon!</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--programProgress page-->
+		<div id="programProgress" data-role="page" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
+				<h1>Progress</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" id="Ul3" data-inset="true" data-theme="d">
+					<li>Coming Soon!</li>
+				</ul>
+			</div>
+		</div>
+        
+        <!--Settings page-->
+		<div id="settings" data-role="page" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
+				<h1>Settings</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" id="Ul4" data-inset="true" data-theme="d">
+					<li>Come on, this is just a sample!</li>
+				</ul>
+			</div>
+		</div>
+
+        <!--Under Development page-->
+        <div id="underdev" data-role="page" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed"  data-tap-toggle="false">
+                <h1>Under Development</h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" id="Ul4" data-inset="true" data-theme="d">
+                    <li>This page is Under Development!</li>
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+			var seatMapDrawing = new seatMapDrawing();
+			var airData = new airlinesData(2000);
+			var airlines = new airlinesApp();
+			airlines.run();
+		</script>
+    </body>
+</html>
+            
+
+        
