@@ -187,14 +187,14 @@ body{
 
 #ap-column-left{
     float:left;
-    width: 40%;
+    width: 35%;
     background-color: white;
 
 
 }
 #ap-column-left p{
     text-align: center;
-    margin: 10px 5% 0;
+    margin: 10px 0 0;
     font-size: 6rem;
     color:tomato;
     font-weight: 100;
@@ -208,12 +208,13 @@ body{
 }
 #ap-area {
     display: block;
-
+    margin: 32px 0 0;
  }
 #ap-area p{
+
     display: block;
     font-size: 1.9rem;
-    margin: 13% auto 0;
+    margin: 10px auto 0;
     color: darkslategrey;
 }
 
@@ -241,7 +242,8 @@ body{
 }
 #ap-families{
     clear:both;
-    margin-left:13%;
+    width:100%;
+    margin-left:5%;
 }
 #ap-families p{
     font-size: 1rem;
@@ -274,16 +276,19 @@ text-align: center;
 }
 .ui-field-contain label{
     margin:0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding-top:5px;
     text-align: left;
     width: 70%;
 }
 
 .ui-field-contain{
-    text-align: center;
-    margin: 2rem 0;
+    text-align: right;
+
 }
 #ap-info ul li span{
     margin-left:10px;
+}
+.ui-slider{
+    text-align: right;
 }
