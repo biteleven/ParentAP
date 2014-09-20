@@ -38,13 +38,13 @@
 
     <!-- home page -->
     <div id="activity" data-role="page">
-    <div id="ap-column-left">
-        <p>19</p>
-    </div>
-    <div id="ap-column-right">
-        <div id="ap-area"><p>APs near you</p></div>
-        <div id="ap-area2"><p>/ 35<span> available in your area</span></p></div>
-    </div>
+        <div id="ap-column-left">
+            <p>19</p>
+        </div>
+        <div id="ap-column-right">
+            <div id="ap-area"><p>APs near you</p></div>
+            <div id="ap-area2"><p>/ 35<span> available in your area</span></p></div>
+        </div>
 
         <div id="ap-families"><p>1027<span>AP Families are online</span></p></div>
         <div class="hline"></div>
@@ -54,29 +54,29 @@
                 <li><i class="fa fa-crosshairs fa-lg"></i><span>You are attending: Mesologgioy 17 13674 Acharnes Greece</span></span></li>
             </ul>
 
-        <form id="available-form">
-            <div class="ui-field-contain">
-                <label for="opt_available">Available</label>
-                <select id="opt_available" name="opt_available" data-role="slider">
+            <form id="available-form">
+                <div class="ui-field-contain">
+                    <label for="opt_available">Available</label>
+                    <select id="opt_available" name="opt_available" data-role="slider">
+                        <option value="off">Off</option>
+                        <option value="on">On</option>
+                    </select>
+                </div>
+                <div class="ui-field-contain">
+                <label for="opt_available_game">Available for game</label>
+                <select id="opt_available_game" name="opt_available_game" data-role="slider">
                     <option value="off">Off</option>
                     <option value="on">On</option>
                 </select>
-            </div>
-            <div class="ui-field-contain">
-            <label for="opt_available_game">Available for game</label>
-            <select id="opt_available_game" name="opt_available_game" data-role="slider">
-                <option value="off">Off</option>
-                <option value="on">On</option>
-            </select>
-            </div>
-            <div class="ui-field-contain">
-            <label for="opt_available_meet">Available for meet</label>
-            <select id="opt_available_meet" name="opt_available_meet" data-role="slider">
-                <option value="off">Off</option>
-                <option value="on">On</option>
-            </select>
-            </div>
-        </form>
+                </div>
+                <div class="ui-field-contain">
+                <label for="opt_available_meet">Available for meet</label>
+                <select id="opt_available_meet" name="opt_available_meet" data-role="slider">
+                    <option value="off">Off</option>
+                    <option value="on">On</option>
+                </select>
+                </div>
+            </form>
 
         </div>
         <div data-role="footer">
@@ -89,327 +89,10 @@
             </div><!-- /navbar -->
         </div><!-- /footer -->
     </div>
-    <!-- home page -->
-    <div id="home" data-role="page">
-        <div data-role="header"  data-position="fixed"  data-tap-toggle="false">
-            <h1>Hi <span id="ffname"></span>!</h1>
-        </div>
 
-        <div >
-            <ul id="mainmenu">
-                <li class="box"><a href="#" data-role="button" id="bt_sos"  onclick="showEmergencyConfirm(); return false;" data-transition="" class="menu-item">Κλήση Ανάγκης</a></li>
-                <li class="box"><a href="#service" data-role="button" id="bt_help" data-transition="" class="menu-item" >Οδική Βοήθεια</a></li>
-                <li class="box"><a href="#location" data-role="button" id="bt_location" data-transition="" class="menu-item" >Τοποθεσία</a></li>
-                <li class="box"><a href="#underdev" data-role="button" id="bt_help" data-transition="" class="menu-item" >Vehicles</a></li>
-                <li class="box"><a href="#underdev" data-role="button" id="bt_help" data-transition="" class="menu-item" >My Location</a></li>
-                <li class="box"><a href="#underdev" data-role="button" id="bt_help" data-transition="" class="menu-item" >Settings</a></li>
 
-            </ul>
-        </div>
 
-    </div>
 
-    <!-- Request Service page -->
-    <div id="service" data-role="page" data-add-back-btn="true">
-        <div data-role="header" data-position="fixed"  data-tap-toggle="false">
-            <h1>Οδική Βοήθεια</h1>
-         </div>
-        <div data-role="content">
-            <h3>Βρίσκεστε σε ασφαλές σημείο;</h3>
-            <input type="submit" value="Ναι, είμαι ασφαλής" />
-            <h3>Αν δεν νιώθετε ασφαλείς ή είστε σε κίνδυνο καλέστε πρώτα την άμεση βοήθεια:</h3>
-            <input type="submit" value="Κλήση άμεσης βοήθειας" />
-        </div>
-    </div>
-
-    <!-- Emergency Service page -->
-    <div id="emergency" data-role="page" data-add-back-btn="true">
-        <div data-role="header" data-position="fixed"  data-tap-toggle="false">
-            <h1>Κλήση ανάγκης</h1>
-        </div>
-        <div data-role="content">
-            <p><a href="#" onclick="showEmergencyConfirm(); return false;">Κλήση ανάγκης</a></p>
-        </div>
-    </div>
-
-    <!-- Current Location page -->
-    <div id="location" data-role="page" data-add-back-btn="true">
-        <div data-role="header" data-position="fixed"  data-tap-toggle="false">
-            <h1>Που βρίσκομαι;</h1>
-        </div>
-        <div data-role="content">
-
-            <p id="startTracking_status">First run</p>
-            <button data-role="button" onclick="startGeolocation();" id="startTracking_start">Start Tracking</button>
-            <button data-role="button" onclick="stopGeolocation();" id="startTracking_stop">Stop Tracking</button>
-
-            <p id="currentLocation">No location</p>
-
-            <div id="map_canvas" style="position:relative;bottom:0;left:0;width:100%;height:500px;"></div>
-
-        </div>
-    </div>
-
-    <!-- seatPicker page -->
-		<div id="seatPicker" data-role="page">
-			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
-				<h1>Pick a seat</h1>
-				<a href="#checkIn" data-role="button" id="backButton" data-transition="" class="ui-btn-right" data-rel="back">Done</a>
-			</div>
-			<div data-role="content">
-				<div id="seatMapPickerContainer"></div>
-			</div>
-		</div>
-
-		<!-- logon page -->
-		<div id="logon" data-role="page">
-			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
-				<h1>BlueMonkey Preview</h1>
-			</div>
-			<div data-role="content">
-				<form id="login">
-					Username:
-					<input type="text" id="userName" value="" placeholder="Username" />
-					Password:
-					<input type="password" id="pwd" value="" placeholder="Password" />
-					<input type="submit" value="Login" />
-				</form>
-			</div>
-		</div>
-
-		<!-- tripDetail page -->
-		<div id="tripDetail" data-role="page" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
-				<h1>Trip Details</h1>
-                <a data-role="button" href="#home" class="ui-btn-right">Home</a>
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" id="tripDetailList" data-inset="true" data-theme="d">
-					<li class="center-wrapper" data-role="list-divider">
-						<span id="tripDetail-title"></span>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Flight Number</div>
-							<div class="ui-block-b">
-								<span id="tripDetail-flightNum"></span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Departure Time</div>
-							<div class="ui-block-b">
-								<span id="tripDetail-depart"></span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Seat</div>
-							<div class="ui-block-b">
-								<span id="tripDetail-seat"></span>
-							</div>
-						</div>
-					</li>
-				</ul>
-				<ul data-role="listview" id="tripDetailList-return" data-inset="true" data-theme="d">
-					<li class="center-wrapper" data-role="list-divider">
-						<span id="tripDetail-return-title"></span>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Flight Number</div>
-							<div class="ui-block-b">
-								<span id="tripDetail-return-flightNum"></span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Departure Time</div>
-							<div class="ui-block-b">
-								<span id="tripDetail-return-depart"></span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Seat</div>
-							<div class="ui-block-b">
-								<span id="tripDetail-return-seat"></span>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-		<!--boardingPass page-->
-		<div id="boardingPass" data-role="page" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
-				<h1>Boarding Pass</h1>
-				<a data-role="button" href="#home" class="ui-btn-right">Home</a>
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" id="boardingPassData" data-inset="true" data-theme="d">
-					<li class="center-wrapper" data-role="list-divider">
-						<span id="boardingpass-cnum"></span>
-					</li>
-					<li class="center-wrapper">
-						<div class="boardingPassCode"></div>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Passenger</div>
-							<div class="ui-block-b">
-								<span id="boardingpass-passenger"></span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Flight</div>
-							<div class="ui-block-b">
-								<span id="boardingpass-flight"></span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Departure Time</div>
-							<div class="ui-block-b">
-								<span id="boardingpass-depart"></span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Gate</div>
-							<div class="ui-block-b">
-								<span id="boardingpass-gate"></span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="ui-grid-a">
-							<div class="ui-block-a">Seat</div>
-							<div class="ui-block-b">
-								<span id="boardingpass-seat"></span>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-		<!--checkIn page-->
-		<div id="checkIn" data-role="page" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
-				<h1>Check In</h1>
-                <a data-role="button" href="#home" class="ui-btn-right">Home</a>
-			</div>
-			<div data-role="content">
-				<div class="ui-grid-a">
-					<div class="ui-block-a">
-						<ul data-role="listview" data-inset="true" data-theme="d">
-							<li data-role="list-divider">Flight</li>
-							<li>
-								<span id="checkIn-flight-number"></span>
-							</li>
-                            <li>
-								<span id="checkIn-flight-destination"></span>
-							</li>
-						</ul>
-					</div>
-					<div class="ui-block-b">
-						<ul data-role="listview" data-inset="true" data-theme="d">
-							<li data-role="list-divider">Seat</li>
-							<li>
-								<span id="checkIn-seat"></span>
-							</li>
-							<li>
-								<a href="#seatPicker" data-transition="slide">Change Seat</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<a href="#boardingPass" data-role="button">Check In</a>
-			</div>
-		</div>
-
-		<!--myTrips page-->
-		<div id="myTrips" data-role="page" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
-				<h1>My Trips</h1>
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" id="myTripsListView" data-inset="true" data-theme="d">
-				</ul>
-			</div>
-		</div>
-
-		<!--flightStatus page-->
-		<div id="flightStatus" data-role="page" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
-				<h1>Flight Status</h1>
-
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" id="Ul1" data-inset="true" data-theme="d">
-					<li>Coming Soon!</li>
-				</ul>
-			</div>
-		</div>
-        
-		<!--bagTrack page-->
-		<div id="bagTrack" data-role="page" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
-				<h1>Bag Track</h1>
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" id="Ul2" data-inset="true" data-theme="d">
-					<li>Coming Soon!</li>
-				</ul>
-			</div>
-		</div>
-
-		<!--programProgress page-->
-		<div id="programProgress" data-role="page" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
-				<h1>Progress</h1>
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" id="Ul3" data-inset="true" data-theme="d">
-					<li>Coming Soon!</li>
-				</ul>
-			</div>
-		</div>
-        
-        <!--Settings page-->
-		<div id="settings" data-role="page" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed"  data-tap-toggle="false">
-				<h1>Settings</h1>
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" id="Ul4" data-inset="true" data-theme="d">
-					<li>Come on, this is just a sample!</li>
-				</ul>
-			</div>
-		</div>
-
-        <!--Under Development page-->
-        <div id="underdev" data-role="page" data-add-back-btn="true">
-            <div data-role="header" data-position="fixed"  data-tap-toggle="false">
-                <h1>Under Development</h1>
-            </div>
-            <div data-role="content">
-                <ul data-role="listview" id="Ul4" data-inset="true" data-theme="d">
-                    <li>This page is Under Development!</li>
-                </ul>
-            </div>
-        </div>
-        
         <script>
 			var seatMapDrawing = new seatMapDrawing();
 			var airData = new airlinesData(2000);
