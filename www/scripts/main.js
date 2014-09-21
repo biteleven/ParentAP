@@ -4,7 +4,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 // PhoneGap is ready
 function onDeviceReady() {
-    
+    document.addEventListener("backbutton", function(e){
+        if($.mobile.activePage.is('#activity')){
+            e.preventDefault();
+            navigator.app.exitApp();
+        }
+        else {
+            navigator.app.backHistory()
+        }
+    }, false);
 	
 }
 
