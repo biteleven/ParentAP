@@ -57,21 +57,21 @@
             <form id="available-form">
                 <div class="ui-field-contain">
                     <label for="opt_available">Available</label>
-                    <select id="opt_available" name="opt_available" data-role="slider">
+                    <select id="opt_available" name="opt_available" data-role="none">
                         <option value="off">Off</option>
                         <option value="on">On</option>
                     </select>
                 </div>
                 <div class="ui-field-contain">
                 <label for="opt_available_game">Available for game</label>
-                <select id="opt_available_game" name="opt_available_game" data-role="slider">
+                <select id="opt_available_game" name="opt_available_game" data-role="none">
                     <option value="off">Off</option>
                     <option value="on">On</option>
                 </select>
                 </div>
                 <div class="ui-field-contain">
                 <label for="opt_available_meet">Available for meet</label>
-                <select id="opt_available_meet" name="opt_available_meet" data-role="slider">
+                <select id="opt_available_meet" name="opt_available_meet" data-role="none">
                     <option value="off">Off</option>
                     <option value="on">On</option>
                 </select>
@@ -82,9 +82,9 @@
         <div data-role="footer" data-id="activity" data-position="fixed">
             <div data-role="navbar" >
                 <ul>
-                    <li><a href="#activity" class="ui-btn-active ui-state-persist" data-icon="grid" data-theme="b" data-transition="slide">Info</a></li>
-                    <li><a href="#map" data-icon="star" data-theme="a" data-transition="slide">Map</a></li>
-                    <li><a href="#settings" data-icon="gear" data-theme="a" data-transition="slide">Settings</a></li>
+                    <li><a href="#activity" class="ui-btn-active ui-state-persist" data-icon="grid" data-theme="b" data-transition="none">Info</a></li>
+                    <li><a href="#map" data-icon="star" data-theme="a" data-transition="none">Map</a></li>
+                    <li><a href="#settings" data-icon="gear" data-theme="a" data-transition="none">Settings</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- /footer -->
@@ -95,9 +95,9 @@
         <div data-role="footer" data-id="map" data-position="fixed">
             <div data-role="navbar" >
                 <ul>
-                    <li><a href="#activity" data-icon="grid" data-theme="a" data-transition="slide">Info</a></li>
-                    <li><a href="#map" class="ui-btn-active ui-state-persist" data-icon="star" data-theme="b" data-transition="slide">Map</a></li>
-                    <li><a href="#settings" data-icon="gear" data-theme="a" data-transition="slide">Settings</a></li>
+                    <li><a href="#activity" data-icon="grid" data-theme="a" data-transition="none">Info</a></li>
+                    <li><a href="#map" class="ui-btn-active ui-state-persist" data-icon="star" data-theme="b" data-transition="none">Map</a></li>
+                    <li><a href="#settings" data-icon="gear" data-theme="a" data-transition="none">Settings</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- /footer -->
@@ -130,8 +130,8 @@
         </div>
         <h3 class="ui-bar ui-bar-a">Location</h3>
         <div class="ui-body">
-            <label for="slider-fill">Search Range (meters):</label>
-            <input type="range" name="slider-fill" id="slider-fill" value="500" min="0" max="10000" step="50" data-highlight="true">
+            <label for="none-fill">Search Range (meters):</label>
+            <input type="range" name="none-fill" id="none-fill" value="500" min="0" max="10000" step="50" data-highlight="true">
          </div>
         <h3 class="ui-bar ui-bar-a">Other</h3>
         <div class="ui-body">
@@ -140,9 +140,9 @@
         <div data-role="footer" data-id="settings" data-position="fixed">
             <div data-role="navbar" >
                 <ul>
-                    <li><a href="#activity" data-icon="grid" data-theme="a" data-transition="slide">Info</a></li>
-                    <li><a href="#map"data-icon="star" data-theme="a" data-transition="slide">Map</a></li>
-                    <li><a href="#settings"  class="ui-btn-active ui-state-persist"  data-icon="gear" data-theme="b" data-transition="slide">Settings</a></li>
+                    <li><a href="#activity" data-icon="grid" data-theme="a" data-transition="none">Info</a></li>
+                    <li><a href="#map"data-icon="star" data-theme="a" data-transition="none">Map</a></li>
+                    <li><a href="#settings"  class="ui-btn-active ui-state-persist"  data-icon="gear" data-theme="b" data-transition="none">Settings</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- /footer -->
