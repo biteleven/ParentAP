@@ -276,7 +276,7 @@ ul{
 margin:10px 10px 0 ;
 text-align: center;
 }
-.ui-field-contain label{
+#activity .ui-field-contain label{
     margin:0;
     font-size: 1rem;
     padding-top:5px;
@@ -284,18 +284,36 @@ text-align: center;
     width: 50%;
 }
 
-.ui-mobile label, .ui-controlgroup-label {
+#opt_available-label,#opt_available_game-label,#opt_available_meet-label {
 
  float:left;
 }
 
-.ui-field-contain{
+#activity .ui-field-contain{
     text-align: right;
 border-bottom-style: none;
 }
 #ap-info ul li span{
 margin-left:10px;
 }
-.ui-slider{
+#activity .ui-slider{
 text-align: right;
+}
+
+#settings{
+
+    background-color: white;
+}
+
+#settings h3{
+
+    background-color: white;
+    color: darkslategrey;
+    border-width:0;
+    border-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #2ad;
+}
+#settings h3:first-child {
+    margin-top:0;
 }
