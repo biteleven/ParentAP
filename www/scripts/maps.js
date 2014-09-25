@@ -86,10 +86,10 @@ function SetPushPins(PushPinData) {
 
 
     for (var i = 0; i < PushPinData.length; i++) {
-        var Loc = new Microsoft.Maps.Location(PushPinData[i].Lat, PushPinData[i].Lon);
+        var Loc = new Microsoft.Maps.Location(PushPinData[i].latitude, PushPinData[i].longitude);
         var Pushpin = new Microsoft.Maps.Pushpin(Loc);
-        Pushpin.Title = PushPinData[i].Title;
-        Pushpin.Description = PushPinData[i].Description;
+        Pushpin.FamilyName = PushPinData[i].Title;
+        Pushpin.TextMessage = PushPinData[i].Description;
 
         var InfoBox = new Microsoft.Maps.Infobox(Loc, { visible: false, offset: new Microsoft.Maps.Point(0, 30) });
 
