@@ -17,8 +17,8 @@
             $.mobile.defaultHomeScroll = 0;
           });
         </script>
-		<script src="scripts/maps.js" type="text/javascript"></script>
 		<script src="scripts/main.js" type="text/javascript"></script>
+        <script src="scripts/maps.js" type="text/javascript"></script>
         
         <!-- Default Stylesheet -->
         <link rel="stylesheet" href="styles/main.css" />
@@ -53,7 +53,7 @@
                 <li><i class="fa fa-users fa-lg"></i><span>3 families will attend</span></li>
                 <li><i class="fa fa-crosshairs fa-lg"></i><span>You are attending: Mesologgioy 17 13674 Acharnes Greece</span></span></li>
             </ul>
-
+            <input onclick="connect(this.value)" type="button" value="bikes" />
             <form id="available-form">
                 <div class="ui-field-contain">
                     <label for="opt_available">Available</label>
@@ -141,7 +141,7 @@
             <div data-role="navbar" >
                 <ul>
                     <li><a href="#activity" data-icon="grid" data-theme="a" data-transition="slide">Info</a></li>
-                    <li><a href="#map"data-icon="star" data-theme="a" data-transition="slide">Map</a></li>
+                    <li><a href="#map" data-icon="star" data-theme="a" data-transition="slide">Map</a></li>
                     <li><a href="#settings"  class="ui-btn-active ui-state-persist"  data-icon="gear" data-theme="b" data-transition="slide">Settings</a></li>
                 </ul>
             </div><!-- /navbar -->

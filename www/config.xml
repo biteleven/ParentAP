@@ -7,6 +7,8 @@
 
     <!-- versionCode is optional and Android only -->
 
+    <access origin="http://dev.bit11.gr" />
+
     <name>BlueMonkey Project</name>
 
     <description>

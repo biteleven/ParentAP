@@ -1,5 +1,8 @@
 //http://jsfiddle.net/hybrid13i/7JsVV/10/
 
+
+
+
 function initializeMap() {
     var mapOptions = {
         credentials: "Atcaw7O3cbMdgpvDmRxx9tGXihtc02HUczEYXzjd2cswI6u-iI_obrpWVerjVZ8U",
@@ -16,12 +19,33 @@ function initializeMap() {
     displayAlert('Pushpin Location Updated to ' + pushpin.getLocation() + '. Pan map to location, if pushpin is not visible');
 }
 
+function connect(e)
+{
+    var term= {button:e};
+    $.ajax({
+        url:'http://dev.bit11.gr/parentap/appData.ashx',
+        crossDomain: true,
+        type:'POST',
+        data: { key: "12345", action: "getnearest", position: "38.08944515|23.73797894|5700" },
+        dataType:'json',
+        contentType: "application/json; charset=utf-8",
+        error:function(jqXHR,text_status,strError){
+            console.log('error');
+            console.log(text_status);
+            console.log(strError);
+            alert("no connection");},
+        timeout:60000,
+        success:function(data){
+            AddPushPins(data);
+        }
+    });}
+
 var map = null;
 var InfoBoxEntity = null;
 var PushPinsEntity = null;
 
-function AddPushPins() {
-    var strJSON = document.getElementById('txtJSON');
+function AddPushPins(strJSON) {
+    //var strJSON = document.getElementById('txtJSON');
 
     if (strJSON.value.length == 0) {
         alert('Please provide pushpin data in JSON format');
