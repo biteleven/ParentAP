@@ -53,7 +53,7 @@
                 <li><i class="fa fa-users fa-lg"></i><span>3 families will attend</span></li>
                 <li><i class="fa fa-crosshairs fa-lg"></i><span>You are attending: Mesologgioy 17 13674 Acharnes Greece</span></span></li>
             </ul>
-            <input onclick="connect(this.value)" type="button" value="bikes" />
+
             <form id="available-form">
                 <div class="ui-field-contain">
                     <label for="opt_available">Available</label>
@@ -91,8 +91,10 @@
     </div>
 
     <div id="map" data-role="page">
+
         <div id="map-area"></div>
         <div data-role="footer" data-id="map" data-position="fixed">
+            <input onclick="connect(this.value)" type="button" value="Refresh" />
             <div data-role="navbar" >
                 <ul>
                     <li><a href="#activity" data-icon="grid" data-theme="a" data-transition="slide">Info</a></li>
@@ -149,7 +151,7 @@
     </div>
 
     <script>
-        initializeMap();
+        LoadMap();
     </script>
 
     </body>

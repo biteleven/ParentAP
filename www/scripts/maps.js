@@ -2,41 +2,24 @@
 
 
 
-
-function initializeMap() {
-    var mapOptions = {
-        credentials: "Atcaw7O3cbMdgpvDmRxx9tGXihtc02HUczEYXzjd2cswI6u-iI_obrpWVerjVZ8U",
-        mapTypeId: Microsoft.Maps.MapTypeId.road,
-        center: new Microsoft.Maps.Location(38.078366 , 23.743858),
-        zoom: 16
-    };
-    var map = new Microsoft.Maps.Map(document.getElementById("map-area"), mapOptions);
-
-    map.entities.clear();
-    var pushpin= new Microsoft.Maps.Pushpin(map.getCenter(), null);
-    map.entities.push(pushpin);
-    pushpin.setLocation(new Microsoft.Maps.Location(38.078366,23.743858));
-    displayAlert('Pushpin Location Updated to ' + pushpin.getLocation() + '. Pan map to location, if pushpin is not visible');
-}
-
 function connect(e)
 {
     var term= {button:e};
     $.ajax({
         url:'http://dev.bit11.gr/parentap/appData.ashx',
         crossDomain: true,
-        type:'POST',
-        data: { key: "12345", action: "getnearest", position: "38.08944515|23.73797894|5700" },
+        type:'GET',
+        data: { "key":"12345", "action":"getnearest", "position":"38.08944515|23.73797894|5700" },
         dataType:'json',
         contentType: "application/json; charset=utf-8",
         error:function(jqXHR,text_status,strError){
             console.log('error');
-            console.log(text_status);
-            console.log(strError);
+            console.log(jqXHR);
+            //console.log(strError);
             alert("no connection");},
         timeout:60000,
         success:function(data){
-            AddPushPins(data);
+            SetPushPins(data);
         }
     });}
 
@@ -47,13 +30,13 @@ var PushPinsEntity = null;
 function AddPushPins(strJSON) {
     //var strJSON = document.getElementById('txtJSON');
 
-    if (strJSON.value.length == 0) {
+    if (strJSON.length == 0) {
         alert('Please provide pushpin data in JSON format');
         return;
     }
 
     try{
-        var data = JSON.parse(strJSON.value);
+        var data = JSON.parse(strJSON);
         SetPushPins(data);
         strJSON.value = "";
     }
@@ -63,9 +46,13 @@ function AddPushPins(strJSON) {
 }
 
 function LoadMap() {
-    map = new Microsoft.Maps.Map(document.getElementById('MyMap'), {
+//    var map = new Microsoft.Maps.Map(document.getElementById("map-area"), mapOptions);
+
+    map = new Microsoft.Maps.Map(document.getElementById('map-area'), {
         credentials: "Atcaw7O3cbMdgpvDmRxx9tGXihtc02HUczEYXzjd2cswI6u-iI_obrpWVerjVZ8U",
-        mapTypeId: Microsoft.Maps.MapTypeId.road
+        mapTypeId: Microsoft.Maps.MapTypeId.road,
+        center: new Microsoft.Maps.Location(38.078366 , 23.743858),
+        zoom: 14
     });
 
     PushPinsEntity = new Microsoft.Maps.EntityCollection();
@@ -74,10 +61,10 @@ function LoadMap() {
     InfoBoxEntity = new Microsoft.Maps.EntityCollection();
     map.entities.push(InfoBoxEntity);
 
-    map.setView({
+   /* map.setView({
         center: new Microsoft.Maps.Location(47.27197080559039, 1.303472656250002),
         zoom: 1
-    });
+    });*/
 }
 
 function SetPushPins(PushPinData) {
@@ -87,9 +74,15 @@ function SetPushPins(PushPinData) {
 
     for (var i = 0; i < PushPinData.length; i++) {
         var Loc = new Microsoft.Maps.Location(PushPinData[i].latitude, PushPinData[i].longitude);
-        var Pushpin = new Microsoft.Maps.Pushpin(Loc);
-        Pushpin.FamilyName = PushPinData[i].Title;
-        Pushpin.TextMessage = PushPinData[i].Description;
+        var Pushpin = new Microsoft.Maps.Pushpin(Loc,
+        {
+            text: PushPinData[i].FamilyName,
+                height:39,
+                width:80,
+                typeName: 'blackText'
+        });
+        Pushpin.Title = PushPinData[i].FamilyName;
+        Pushpin.Description = PushPinData[i].TextMessage;
 
         var InfoBox = new Microsoft.Maps.Infobox(Loc, { visible: false, offset: new Microsoft.Maps.Point(0, 30) });
 

@@ -317,3 +317,7 @@ text-align: right;
 #settings h3:first-child {
     margin-top:0;
 }
+
+.blackText > div{
+    color: black !important;
+}
