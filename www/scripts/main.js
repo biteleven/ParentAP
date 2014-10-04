@@ -13,7 +13,7 @@ function onDeviceReady() {
             navigator.app.backHistory()
         }
     }, false);
-
+    $("#locinfo").html("Init Geolocation");
     startGeolocation();
 }
 
@@ -162,7 +162,7 @@ function updateStatus(e)
     locstring+= myHeading + '|';
     locstring+= mySpeed + '|';
     locstring+= '0|Not Available|1';
-    locstring="1|15|38.09150549|23.78104448|120|122|10|8|Test Location 33|1";
+    //locstring="1|15|38.09150549|23.78104448|120|122|10|8|Test Location 33|1";
     $.ajax({
         url:'http://dev.bit11.gr/parentap/appData.ashx',
         crossDomain: true,
