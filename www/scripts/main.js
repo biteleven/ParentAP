@@ -13,7 +13,8 @@ function onDeviceReady() {
             navigator.app.backHistory()
         }
     }, false);
-	
+
+    startGeolocation();
 }
 
 var airlinesApp = function(){}
@@ -149,75 +150,38 @@ function showEmergencyConfirm() {
     );
 }
 
-//Geolocation functions
 
-var watch_id = null;    // ID of the geolocation
-//var tracking_data = []; // Array containing GPS position objects
-
-function startGeolocation(){
-    console.log("Location search started!");
-    // Start tracking the User
-
-    initMap();
-    watch_id = navigator.geolocation.watchPosition(
-
-        // Success
-        function(position){
-            console.log("Location Updated");
-            $("#currentLocation").html('Latitude: '  + position.coords.latitude      + '<br />' +
-                                        'Longitude: ' + position.coords.longitude     + '<br />' +
-                                        '<hr />');
-            marker.setPosition( new google.maps.LatLng( position.coords.latitude , position.coords.longitude ) );
-            map.panTo( new google.maps.LatLng( position.coords.latitude,  position.coords.longitude  ) );
-        },
-
-        // Error
-        function(error){
-            console.log(error);
-            alert("GPS Error");
-        },
-
-        // Settings
-        { frequency: 3000, enableHighAccuracy: true });
-
-    $("#startTracking_status").html("Tracking Started");
-}
-
-function stopGeolocation(){
-    console.log("Location search stopped!");
-        // Stop tracking the user
-        navigator.geolocation.clearWatch(watch_id);
-
-        // Save the tracking data
-        //window.localStorage.setItem(track_id, JSON.stringify(tracking_data));
-
-        // Reset watch_id and tracking_data
-        var watch_id = null;
-        //var tracking_data = null;
-
-        $("#startTracking_status").html("Tracking Stopped");
-
-}
-
-var marker;
-var map;
-function initMap()
+function updateStatus(e)
 {
-
-    // Set the initial Lat and Long of the Google Map
-    var myLatLng = new google.maps.LatLng(38.04393,23.804930);
-
-// Google Map options
-    var myOptions = {
-        zoom: 15,
-        center: myLatLng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-// Create the Google Map, set options
-    map = new google.maps.Map( document.getElementById( 'map_canvas' ), myOptions );
-    marker = new google.maps.Marker( {position: myLatLng, map: map} );
-
-    marker.setMap( map );
-
-}
+    var locstring;
+    locstring='1|';
+    locstring+= myAcc + '|';
+    locstring+= myLat + '|';
+    locstring+= myLon + '|';
+    locstring+= myAlt + '|';
+    locstring+= myHeading + '|';
+    locstring+= mySpeed + '|';
+    locstring+= '0|Not Available|1';
+    locstring="1|15|38.09150549|23.78104448|120|122|10|8|Test Location 33|1";
+    $.ajax({
+        url:'http://dev.bit11.gr/parentap/appData.ashx',
+        crossDomain: true,
+        type:'GET',
+        data: { "key":"12345", "action":"updateposition", "loc": locstring },
+        dataType:'json',
+        contentType: "application/json; charset=utf-8",
+        error:function(jqXHR,text_status,strError){
+            console.log('error');
+            console.log(jqXHR);
+            //console.log(strError);
+            alert("no connection");},
+        timeout:60000,
+        success:function(data){
+            if(data.success==true) {
+                alert("Success");
+            }
+            else{
+                alert("Failed");
+            }
+        }
+    });}

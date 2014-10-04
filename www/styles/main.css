@@ -233,7 +233,7 @@ body{
 
 #ap-info{
     margin-left:5%;
-
+    margin-right:5%;
 
 }
 
@@ -246,6 +246,7 @@ body{
     clear:both;
     width:100%;
     margin-left:5%;
+
 }
 #ap-families p{
     font-size: 1rem;
@@ -318,6 +319,6 @@ text-align: right;
     margin-top:0;
 }
 
-.blackText > div{
+.blackText div{
     color: black !important;
 }

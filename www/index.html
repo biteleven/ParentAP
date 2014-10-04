@@ -17,8 +17,10 @@
             $.mobile.defaultHomeScroll = 0;
           });
         </script>
-		<script src="scripts/main.js" type="text/javascript"></script>
         <script src="scripts/maps.js" type="text/javascript"></script>
+        <script src="scripts/location.js" type="text/javascript"></script>
+		<script src="scripts/main.js" type="text/javascript"></script>
+
         
         <!-- Default Stylesheet -->
         <link rel="stylesheet" href="styles/main.css" />
@@ -49,12 +51,14 @@
         <div id="ap-families"><p>1027<span>AP Families are online</span></p></div>
         <div class="hline"></div>
         <div id="ap-info">
+            <div id="locinfo"></div>
             <ul>
                 <li><i class="fa fa-users fa-lg"></i><span>3 families will attend</span></li>
                 <li><i class="fa fa-crosshairs fa-lg"></i><span>You are attending: Mesologgioy 17 13674 Acharnes Greece</span></span></li>
             </ul>
 
             <form id="available-form">
+                <input onclick="updateStatus(this.value)" type="button" value="Status Update" />
                 <div class="ui-field-contain">
                     <label for="opt_available">Available</label>
                     <select id="opt_available" name="opt_available" data-role="slider">

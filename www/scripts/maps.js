@@ -26,6 +26,7 @@ function connect(e)
 var map = null;
 var InfoBoxEntity = null;
 var PushPinsEntity = null;
+var myPositionPin = null;
 
 function AddPushPins(strJSON) {
     //var strJSON = document.getElementById('txtJSON');
@@ -60,6 +61,9 @@ function LoadMap() {
 
     InfoBoxEntity = new Microsoft.Maps.EntityCollection();
     map.entities.push(InfoBoxEntity);
+
+    //var myloc = new Microsoft.Maps.Location(myLat, myLon);
+    //myPositionPin = new Microsoft.Maps.Pushpin(myloc);
 
    /* map.setView({
         center: new Microsoft.Maps.Location(47.27197080559039, 1.303472656250002),
