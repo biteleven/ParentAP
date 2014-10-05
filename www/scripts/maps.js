@@ -23,7 +23,7 @@ function connect(e)
         },
         complete: function() {
             // Schedule the next request when the current one's complete
-            setTimeout(connect, 5000);
+            setTimeout(connect, 15000);
         }
     });}
 
@@ -79,6 +79,7 @@ function SetPushPins(PushPinData) {
     if (PushPinData.length == 0)
         return;
 
+    map.entities.clear();
 
     for (var i = 0; i < PushPinData.length; i++) {
         var Loc = new Microsoft.Maps.Location(PushPinData[i].latitude, PushPinData[i].longitude);
