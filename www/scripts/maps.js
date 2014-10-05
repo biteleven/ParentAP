@@ -83,6 +83,9 @@ function SetPushPins(PushPinData) {
     InfoBoxEntity = new Microsoft.Maps.EntityCollection();
     map.entities.push(InfoBoxEntity);
 
+    var myloc = new Microsoft.Maps.Location(myLat, myLon);
+    myPositionPin = new Microsoft.Maps.Pushpin(myloc);
+
     for (var i = 0; i < PushPinData.length; i++) {
         var Loc = new Microsoft.Maps.Location(PushPinData[i].latitude, PushPinData[i].longitude);
         var Pushpin = new Microsoft.Maps.Pushpin(Loc,
