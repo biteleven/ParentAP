@@ -34,9 +34,7 @@ function onSuccess(position) {
      mySpeed=-1;
      myGPSprovider=0; //GPS=1 , GSM=2
     console.log("Location Updated");
-    $("#locinfo").html('Latitude: '  + position.coords.latitude      + '<br />' +
-        'Longitude: ' + position.coords.longitude     + '<br />' +
-        '<hr />');
+
 
     if(!position.coords.latitude)
          myLat = position.coords.latitude;
@@ -56,6 +54,11 @@ function onSuccess(position) {
         myGPSprovider =1;//GPS
     else
         myGPSprovider =2;//GSM
+
+    $("#locinfo").html('Latitude: '  + myLat      + '<br />' +
+        'Longitude: ' + myLon    + '<br />' +
+        'Accuracy: ' + myAcc    + '<br />' +
+        '<hr />');
 
     optionsWatchPosition = { frequency: 3000,timeout: 120000, enableHighAccuracy: true };
     clearWatch();
