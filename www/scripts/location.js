@@ -19,7 +19,7 @@ var optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: 
 function startGeolocation(){
     console.log("Location search started!");
     // Start tracking the User
-    watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+    watchID = navigator.geolocation.watchPosition(onSuccess, onError, optionsWatchPosition);
 
     $("#locinfo").html("Tracking Started");
 }
