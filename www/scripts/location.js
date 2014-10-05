@@ -14,7 +14,7 @@ var myGPSprovider=0; //GPS=1 , GSM=2
 
 var watch_id = null;    // ID of the geolocation
 //var tracking_data = []; // Array containing GPS position objects
-var optionsWatchPosition = { timeout: 60000, enableHighAccuracy: false, maximumAge: 3600000 };
+var optionsWatchPosition = { timeout: 60000, enableHighAccuracy: false, maximumAge: 300000 };
 
 function startGeolocation(){
     console.log("Location search started!");
