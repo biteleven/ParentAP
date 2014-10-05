@@ -35,13 +35,18 @@ function onSuccess(position) {
      myGPSprovider=0; //GPS=1 , GSM=2
     console.log("Location Updated");
 
-
-    myLat = position.coords.latitude;
-    myLon = position.coords.longitude;
-    myAlt = position.coords.altitude;
-    myAcc = position.coords.accuracy;
-    myHeading = position.coords.heading;
-    mySpeed = position.coords.speed;
+    if(position.latitude!=null)
+           myLat = position.coords.latitude;
+    if(position.longitude!=null)
+           myLon = position.coords.longitude;
+    if(position.altitude!=null)
+           myAlt = position.coords.altitude;
+    if(position.accuracy!=null)
+           myAcc = Math.round(position.coords.accuracy);
+    if(position.heading!=null)
+          myHeading = position.coords.heading;
+    if(position.speed!=null)
+           mySpeed = position.coords.speed;
 
     //position.timestamp
     if(optionsWatchPosition.enableHighAccuracy==true)
