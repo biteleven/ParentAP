@@ -16,9 +16,9 @@ function onDeviceReady() {
     $("#locinfo").html("Init Geolocation");
     startGeolocation();
 
-    window.setInterval(yourfunction, 10000);
+    //window.setInterval(yourfunction, 10000);
 
-    function yourfunction() { alert('test'); }
+    //function yourfunction() { alert('test'); }
 
 }
 
