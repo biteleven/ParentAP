@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="090d3576-407b-40b7-9c53-9d1ad3fc775c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/location.js" afterPath="$PROJECT_DIR$/www/scripts/location.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ParentAP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,8 +60,8 @@
       <file leaf-file-name="location.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/scripts/location.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5151515" vertical-offset="0" max-vertical-offset="1428">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.6875" vertical-offset="674" max-vertical-offset="1428">
+              <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
               <folding>
                 <element signature="e#0#44#0" expanded="false" />
               </folding>
@@ -623,8 +622,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/scripts/location.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5151515" vertical-offset="0" max-vertical-offset="1428">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.6875" vertical-offset="674" max-vertical-offset="1428">
+          <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
           <folding>
             <element signature="e#0#44#0" expanded="false" />
           </folding>

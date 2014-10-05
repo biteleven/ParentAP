@@ -14,7 +14,7 @@ var myGPSprovider=null; //GPS=1 , GSM=2
 
 var watch_id = null;    // ID of the geolocation
 //var tracking_data = []; // Array containing GPS position objects
-var optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: true };
+var optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: false };
 
 function startGeolocation(){
     console.log("Location search started!");
@@ -49,7 +49,7 @@ function onSuccess(position) {
 // onError Callback receives a PositionError object
 function onError(error) {
     console.log(error);
-    alert("GPS Error");
+    $("#locinfo").html("GPS Error");
     clearWatch();
     var optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: false };
     startGeolocation();
