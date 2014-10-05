@@ -49,7 +49,8 @@ function onSuccess(position) {
 // onError Callback receives a PositionError object
 function onError(error) {
     console.log(error);
-    $("#locinfo").html("GPS Error");
+    $("#locinfo").html('code: '    + error.code    + '\n' +
+        'message: ' + error.message + '\n');
     clearWatch();
     optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: false };
     startGeolocation();
