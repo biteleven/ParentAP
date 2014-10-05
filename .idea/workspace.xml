@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="090d3576-407b-40b7-9c53-9d1ad3fc775c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/location.js" afterPath="$PROJECT_DIR$/www/scripts/location.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/main.js" afterPath="$PROJECT_DIR$/www/scripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/maps.js" afterPath="$PROJECT_DIR$/www/scripts/maps.js" />
     </list>
     <ignored path="ParentAP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +38,8 @@
       <file leaf-file-name="maps.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/scripts/maps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1938">
-              <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+            <state vertical-scroll-proportion="-6.285714" vertical-offset="1286" max-vertical-offset="1938">
+              <caret line="86" column="14" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -50,8 +48,8 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/scripts/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
-              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            <state vertical-scroll-proportion="-9.321428" vertical-offset="929" max-vertical-offset="1479">
+              <caret line="182" column="36" selection-start-line="182" selection-start-column="36" selection-end-line="182" selection-end-column="36" />
               <folding>
                 <element signature="e#647#4639#0" expanded="false" />
               </folding>
@@ -62,8 +60,8 @@
       <file leaf-file-name="location.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/scripts/location.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7405303" vertical-offset="1224" max-vertical-offset="1887">
-              <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.7083333" vertical-offset="867" max-vertical-offset="1887">
+              <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
               <folding>
                 <element signature="e#0#44#0" expanded="false" />
               </folding>
@@ -604,28 +602,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/scripts/maps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1938">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/scripts/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        <state vertical-scroll-proportion="-9.321428" vertical-offset="929" max-vertical-offset="1479">
+          <caret line="182" column="36" selection-start-line="182" selection-start-column="36" selection-end-line="182" selection-end-column="36" />
           <folding>
             <element signature="e#647#4639#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/scripts/maps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.285714" vertical-offset="1286" max-vertical-offset="1938">
+          <caret line="86" column="14" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/scripts/location.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7405303" vertical-offset="1224" max-vertical-offset="1887">
-          <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.7083333" vertical-offset="867" max-vertical-offset="1887">
+          <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
           <folding>
             <element signature="e#0#44#0" expanded="false" />
           </folding>

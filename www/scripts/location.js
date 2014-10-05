@@ -14,7 +14,7 @@ var myGPSprovider=0; //GPS=1 , GSM=2
 
 var watch_id = null;    // ID of the geolocation
 //var tracking_data = []; // Array containing GPS position objects
-var optionsWatchPosition = { frequency: 3000,timeout: 60000, enableHighAccuracy: false };
+var optionsWatchPosition = { frequency: 30000,timeout: 60000, enableHighAccuracy: false };
 
 function startGeolocation(){
     console.log("Location search started!");
@@ -74,7 +74,7 @@ function onError(error) {
     $("#locinfo").html('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');
     clearWatch();
-    optionsWatchPosition.enableHighAccuracy = false;
+    optionsWatchPosition.enableHighAccuracy = !optionsWatchPosition.enableHighAccuracy;
     startGeolocation();
 }
 
