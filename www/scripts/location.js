@@ -35,17 +35,17 @@ function onSuccess(position) {
      myGPSprovider=0; //GPS=1 , GSM=2
     console.log("Location Updated");
 
-    if(position.latitude!=null)
+    if(!isEmpty(position.coords.latitude))
            myLat = position.coords.latitude;
-    if(position.longitude!=null)
+    if(!isEmpty(position.coords.longitude))
            myLon = position.coords.longitude;
-    if(position.altitude!=null)
+    if(!isEmpty(position.coords.altitude))
            myAlt = position.coords.altitude;
-    if(position.accuracy!=null)
+    if(!isEmpty(position.coords.accuracy))
            myAcc = Math.round(position.coords.accuracy);
-    if(position.heading!=null)
+    if(!isEmpty(position.coords.heading))
           myHeading = position.coords.heading;
-    if(position.speed!=null)
+    if(!isEmpty(position.coords.speed))
            mySpeed = position.coords.speed;
 
     //position.timestamp
@@ -97,4 +97,8 @@ function clearWatch() {
         navigator.geolocation.clearWatch(watchID);
         watchID = null;
     }
+}
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
 }
