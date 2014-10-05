@@ -85,6 +85,7 @@ function SetPushPins(PushPinData) {
 
     var myloc = new Microsoft.Maps.Location(myLat, myLon);
     myPositionPin = new Microsoft.Maps.Pushpin(myloc,{text:"Me"});
+    PushPinsEntity.push(myPositionPin);
 
     for (var i = 0; i < PushPinData.length; i++) {
         var Loc = new Microsoft.Maps.Location(PushPinData[i].latitude, PushPinData[i].longitude);
