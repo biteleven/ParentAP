@@ -36,18 +36,12 @@ function onSuccess(position) {
     console.log("Location Updated");
 
 
-    if(!position.coords.latitude)
-         myLat = position.coords.latitude;
-    if(!position.coords.longitude)
-         myLon = position.coords.longitude;
-    if(!position.coords.altitude)
-            myAlt = position.coords.altitude;
-    if(!position.coords.accuracy)
-            myAcc = position.coords.accuracy;
-    if(!position.coords.heading)
-            myHeading = position.coords.heading;
-    if(!position.coords.speed)
-         mySpeed = position.coords.speed;
+    myLat = position.coords.latitude;
+    myLon = position.coords.longitude;
+    myAlt = position.coords.altitude;
+    myAcc = position.coords.accuracy;
+    myHeading = position.coords.heading;
+    mySpeed = position.coords.speed;
 
     //position.timestamp
     if(optionsWatchPosition.enableHighAccuracy==true)
