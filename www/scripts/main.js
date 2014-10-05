@@ -15,6 +15,11 @@ function onDeviceReady() {
     }, false);
     $("#locinfo").html("Init Geolocation");
     startGeolocation();
+
+    window.setInterval(yourfunction, 10000);
+
+    function yourfunction() { alert('test'); }
+
 }
 
 var airlinesApp = function(){}

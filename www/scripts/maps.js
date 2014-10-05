@@ -20,6 +20,10 @@ function connect(e)
         timeout:60000,
         success:function(data){
             SetPushPins(data);
+        },
+        complete: function() {
+            // Schedule the next request when the current one's complete
+            setTimeout(connect, 5000);
         }
     });}
 

@@ -14,14 +14,17 @@ var myGPSprovider=0; //GPS=1 , GSM=2
 
 var watch_id = null;    // ID of the geolocation
 //var tracking_data = []; // Array containing GPS position objects
-var optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: false };
+var optionsWatchPosition = { frequency: 3000,timeout: 60000, enableHighAccuracy: false };
 
 function startGeolocation(){
     console.log("Location search started!");
     // Start tracking the User
     watchID = navigator.geolocation.watchPosition(onSuccess, onError, optionsWatchPosition);
 
-    //$("#locinfo").html("Tracking Started");
+    if(optionsWatchPosition.enableHighAccuracy==true)
+      $("#locinfo").css( "color", "red" );
+    else
+      $("#locinfo").css( "color", "blue" );
 }
 
 // onSuccess Geolocation
@@ -59,7 +62,8 @@ function onSuccess(position) {
         'Accuracy: ' + myAcc    + '<br />' +
         '<hr />');
 
-    optionsWatchPosition = { frequency: 3000,timeout: 120000, enableHighAccuracy: true };
+    optionsWatchPosition.enableHighAccuracy = true;
+
     clearWatch();
     startGeolocation();
 }
@@ -70,7 +74,7 @@ function onError(error) {
     $("#locinfo").html('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');
     clearWatch();
-    optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: false };
+    optionsWatchPosition.enableHighAccuracy = false;
     startGeolocation();
 }
 
