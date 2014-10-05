@@ -41,18 +41,18 @@ function onSuccess(position) {
     //position.timestamp
     myGPSprovider =1;//GPS
 
-   // var optionsWatchPosition = { frequency: 3000,timeout: 120000, enableHighAccuracy: true };
-    //clearWatch();
-   // startGeolocation();
+    var optionsWatchPosition = { frequency: 3000,timeout: 120000, enableHighAccuracy: true };
+    clearWatch();
+    startGeolocation();
 }
 
 // onError Callback receives a PositionError object
 function onError(error) {
     console.log(error);
     alert("GPS Error");
-    //clearWatch();
-    //var optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: false };
-    //startGeolocation();
+    clearWatch();
+    var optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: false };
+    startGeolocation();
 }
 
 function stopGeolocation(){
