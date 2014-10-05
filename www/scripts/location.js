@@ -4,13 +4,13 @@
 
 //Geolocation functions
 
-var myLat=null;
-var myLon=null;
-var myAlt=null;
-var myAcc=null;
-var myHeading=null;
-var mySpeed=null;
-var myGPSprovider=null; //GPS=1 , GSM=2
+var myLat=255;
+var myLon=255;
+var myAlt=-1;
+var myAcc=-1;
+var myHeading=-1;
+var mySpeed=-1;
+var myGPSprovider=0; //GPS=1 , GSM=2
 
 var watch_id = null;    // ID of the geolocation
 //var tracking_data = []; // Array containing GPS position objects
@@ -39,7 +39,10 @@ function onSuccess(position) {
     mySpeed = position.coords.speed;
 
     //position.timestamp
-    myGPSprovider =1;//GPS
+    if(optionsWatchPosition.enableHighAccuracy==true)
+        myGPSprovider =1;//GPS
+    else
+        myGPSprovider =2;//GSM
 
     optionsWatchPosition = { frequency: 3000,timeout: 120000, enableHighAccuracy: true };
     clearWatch();
