@@ -60,11 +60,7 @@ function LoadMap() {
         zoom: 14
     });
 
-    PushPinsEntity = new Microsoft.Maps.EntityCollection();
-    map.entities.push(PushPinsEntity);
 
-    InfoBoxEntity = new Microsoft.Maps.EntityCollection();
-    map.entities.push(InfoBoxEntity);
 
     //var myloc = new Microsoft.Maps.Location(myLat, myLon);
     //myPositionPin = new Microsoft.Maps.Pushpin(myloc);
@@ -80,6 +76,12 @@ function SetPushPins(PushPinData) {
         return;
 
     map.entities.clear();
+
+    PushPinsEntity = new Microsoft.Maps.EntityCollection();
+    map.entities.push(PushPinsEntity);
+
+    InfoBoxEntity = new Microsoft.Maps.EntityCollection();
+    map.entities.push(InfoBoxEntity);
 
     for (var i = 0; i < PushPinData.length; i++) {
         var Loc = new Microsoft.Maps.Location(PushPinData[i].latitude, PushPinData[i].longitude);
