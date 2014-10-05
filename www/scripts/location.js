@@ -21,7 +21,7 @@ function startGeolocation(){
     // Start tracking the User
     watchID = navigator.geolocation.watchPosition(onSuccess, onError, optionsWatchPosition);
 
-    $("#locinfo").html("Tracking Started");
+    //$("#locinfo").html("Tracking Started");
 }
 
 // onSuccess Geolocation
@@ -41,7 +41,7 @@ function onSuccess(position) {
     //position.timestamp
     myGPSprovider =1;//GPS
 
-    var optionsWatchPosition = { frequency: 3000,timeout: 120000, enableHighAccuracy: true };
+    optionsWatchPosition = { frequency: 3000,timeout: 120000, enableHighAccuracy: true };
     clearWatch();
     startGeolocation();
 }
@@ -51,7 +51,7 @@ function onError(error) {
     console.log(error);
     $("#locinfo").html("GPS Error");
     clearWatch();
-    var optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: false };
+    optionsWatchPosition = { frequency: 3000,timeout: 5000, enableHighAccuracy: false };
     startGeolocation();
 }
 
