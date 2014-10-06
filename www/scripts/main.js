@@ -1,4 +1,7 @@
 
+//Global Settings Array
+var globalSettings = new Array();
+
 // Wait for Apache Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -13,6 +16,19 @@ function onDeviceReady() {
             navigator.app.backHistory()
         }
     }, false);
+
+    //Variables Load
+    //
+    globalSettings = window.localStorage.getArray("globalSettings");
+    //Init if no settings found
+    if(!globalSettings.length>0){
+        var guidx =generateUUID();
+        globalSettings.push({DeviceID:guidx, APIkey:"", familyName:"", familyMessage:"", familyIcon:"", firstTime:true, searchRadius:1000});
+        window.localStorage.setArray("globalSettings", globalSettings); //Save Array
+    }
+
+
+
     $("#locinfo").html("Init Geolocation");
     startGeolocation();
 
@@ -134,7 +150,7 @@ airlinesApp.prototype = function() {
 	};
     
     return {
-        run:run,
+        run:run
     };
 }();
 
@@ -192,3 +208,20 @@ function updateStatus(e)
             }
         }
     });}
+
+Storage.prototype.setArray = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getArray = function(key) {
+    return JSON.parse(this.getItem(key))
+}
+
+function generateUUID(){
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (d + Math.random()*16)%16 | 0;
+        d = Math.floor(d/16);
+        return (c=='x' ? r : (r&0x7|0x8)).toString(16);
+    });
+    return uuid;
+};
